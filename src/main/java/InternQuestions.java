@@ -3,6 +3,7 @@
  */
 
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  * In 1 hour do the following tasks.
@@ -19,8 +20,16 @@ public class InternQuestions {
      * @return returns a list of the pairs of numbers that add up to 10 from the input numbers
      */
     public List<?> sumOfPairs(List<Integer> numbers) {
-        // put your implementation here
-        return null;
+        List<Pair> pairs = new ArrayList();
+        if (numbers == null) return pairs;
+        for(int i = 0; i < numbers.size(); i++){
+            for(int j = i+1; j < numbers.size(); j++){
+                if (numbers.get(i).intValue() + numbers.get(j).intValue() == 10){
+                    pairs.add(new Pair(numbers.get(i), numbers.get(j)));
+                }
+            }
+        }
+        return pairs;
     }
 
     /**
