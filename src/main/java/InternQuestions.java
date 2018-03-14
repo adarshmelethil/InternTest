@@ -42,7 +42,11 @@ public class InternQuestions {
      * @return true if testString is a substring of input, false otherwise
      */
     public boolean isSubString(String input, String testString) {
-        //put your implementation here
+        if (input == null || testString == null) return false;
+        for(int i = 0; i < input.length(); i++){
+            if(i+testString.length() > input.length()) break;
+            if(input.substring(i, i+testString.length()).equals(testString)) return true;
+        }
         return false;
     }
 
@@ -56,8 +60,16 @@ public class InternQuestions {
      * @return true if the testString is a palindrome
      */
     public boolean isPalindrome(String testString) {
-        // put your implementation here
-        return false;
+        if (testString == null || testString.length() <= 0) return false;
+
+        testString = testString.toLowerCase();
+        for(int i = 0, j = testString.length()-1; i < j; i++, j--){
+            if(testString.charAt(i) != testString.charAt(j)) {
+                System.out.println("--" + i + ", " + j);
+                return false;
+            }
+        }
+        return true;
     }
 
 }
